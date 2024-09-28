@@ -1,5 +1,7 @@
-#pragma once
-#include "CommonInclude.h"
+#pragma once  //컴파일러에게 이 헤더 파일이 포함되어 있으면 더 이상 중복으로 선언하지 않게 도와주는 역할(헤더 파일의 중복으로 2번 불러오는 것을 방지하는 전처리기)
+//#include "CommonInclude.h"  //아래의 #include 한 헤더 파일 안에 이 헤더 파일이 포함되어 있기 때문에 중복이 되는데 위의 전처리기가 중복되지 않게 처리해주게 된다.
+//빌드 시간을 줄이기 위해 중복된 헤더 파일을 찾아서 삭제하는 경우도 있다.
+#include "mfeGameObject.h"
 
 //네임스페이스를 만드는 이유는 클래스의 이름이 겹칠 수 있기 때문에 구분을 위해 만들었다.
 namespace mfe {
@@ -9,23 +11,23 @@ namespace mfe {
 		HWND mHwnd;
 		HDC mHdc;
 
-		float moveSpeed;  //실수로 속도를 제어하면 조금 더 상세하게 속도를 조절할 수 있어서 실수를 사용(상황에 맞게 알아서 사용하면 된다.)
-
 		//플레이어 이동과 관련된 변수
-		float moveX;  //x좌표를 이동하는 속도
-		float moveY;  //y좌표를 이동하는 속도
+		//float moveX;  //x좌표를 이동하는 속도
+		//float moveY;  //y좌표를 이동하는 속도
+
+		//플레이어도 게임 오브젝트니 게임 오브젝트 클래스로 관리
+		//이렇게 객체를 통해 동작하도록 하는 것을 객체 지향이라고 하며 객체 지향은 객체가 적으면 장점을 못 느끼지만 객체가 많아질수록 장점을 발휘하게 된다.
+		GameObject player;
 
 	public:
-		Application();  //생성자
+		Application();
 
-		void Initialize(HWND hwnd);  //초기화
-		void Run();  //동작 -> 게임에 돌아가는 모든 동작을 관리하는 함수(게임 실행과 관련된 모든 것을 포함시켜 관리한다.)
-		void Update();  //업데이트 -> 매 프레임 게임 로직이 돌아가게 만드는 함수(게임 동작 담당1)
-		void LateUpdate();  //위의 Update 함수가 업데이트 한 이후 나중에 업데이트하는 함수(게임 동작 담당2)
-		void Render();  //렌더 -> 뭔가를 그리려 할 때 이 함수에서 관리(화면 출력 담당)
+		void Initialize(HWND hwnd); 
+		void Run();
+		void Update();
+		void LateUpdate();
+		void Render();
 
-		//업데이트 함수가 여러 개로 쪼갠 이유는 필요에 의해 어떤 것은 앞에서 어떤 것은 뒤에서 업데이트가 되는 것이 필요하기 때문이다.
-
-		~Application();  //소멸자
+		~Application();
 	};
 }

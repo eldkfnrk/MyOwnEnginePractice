@@ -57,7 +57,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             }
         }
         else {
-            //게임 로직이 들어올 부분
             application.Run();
         }
     }

@@ -26,21 +26,23 @@ namespace mfe {
 			bool bPressed;  //키가 눌려있는지 알기 위한 변수
 		};
 
-		static void Initailize();
+		static void Initialize();
 		static void Update();
-
 		
 		static bool GetKeyDown(eKeyCode code) {  //down이면 true 반환
-			return mKeys[(UINT)code].state == eKeyState::Down;  
+			return Keys[(UINT)code].state == eKeyState::Down;  
 		}
 		static bool GetKey(eKeyCode code) {  //pressed이면 true 반환
-			return mKeys[(UINT)code].state == eKeyState::Pressed;
+			return Keys[(UINT)code].state == eKeyState::Pressed;
 		}
 		static bool GetKeyUp(eKeyCode code) {  //up이면 true 반환
-			return mKeys[(UINT)code].state == eKeyState::Up;
+			return Keys[(UINT)code].state == eKeyState::Up;
 		}
 
 	private:
-		static std::vector<Key> mKeys;
+		static void createKeys();
+		static void updateKeys();
+
+		static std::vector<Key> Keys;
 	};
 }

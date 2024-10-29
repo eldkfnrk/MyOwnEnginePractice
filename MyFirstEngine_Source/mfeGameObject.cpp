@@ -1,5 +1,6 @@
 #include "mfeGameObject.h"
 #include "mfeInput.h"
+#include "mfeTime.h"
 
 namespace mfe {
 	GameObject::GameObject() :moveX(0.0f), moveY(0.0f), moveX1(0.0f), moveY1(0.0f) {
@@ -7,38 +8,42 @@ namespace mfe {
 	}
 
 	void GameObject::Update() {
+		const float speed = 100.0f;
+
 		//방향기를 이용해서 이동(파란색 네모를 이동시킨다.)
 		if (Input::GetKey(eKeyCode::Left)) {
-			moveX -= 0.01f;
+			//이렇게 속도를 설정하고 DeltaTime을 곱하게 되면 성능에 상관없이 게임을 돌리는 모든 컴퓨터가 동일한 결과를 얻게 된다.
+			//대신 성능이 좋으면 좀 더 부드럽게 보이게 된다.
+			moveX -= speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::Right)) {
-			moveX += 0.01f;
+			moveX += speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::Up)) {
-			moveY -= 0.01f;
+			moveY -= speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::Down)) {
-			moveY += 0.01f;
+			moveY += speed * Time::DeltaTime();
 		}
 
 		//WASD를 이용해서 이동(빨간색 원을 이동시킨다.)
 		if (Input::GetKey(eKeyCode::W)) {
-			moveY1 -= 0.01f;
+			moveY1 -= speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::A)) {
-			moveX1 -= 0.01f;
+			moveX1 -= speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::S)) {
-			moveY1 += 0.01f;
+			moveY1 += speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::D)) {
-			moveX1 += 0.01f;
+			moveX1 += speed * Time::DeltaTime();
 		}
 	}
 

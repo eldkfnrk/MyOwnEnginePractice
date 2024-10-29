@@ -106,10 +106,13 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; 
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, 1600, 900, nullptr, nullptr, hInstance, nullptr); 
+   const UINT width = 1600;
+   const UINT height = 900;
 
-   application.Initialize(hWnd);  //핸들을 선언하면서 Application 클래스 객체의 핸들 멤버를 초기화
+   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+      CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr); 
+
+   application.Initialize(hWnd, width, height);  //핸들을 선언하면서 Application 클래스 객체의 핸들 멤버를 초기화
 
    if (!hWnd)
    {

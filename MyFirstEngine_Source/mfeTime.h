@@ -2,6 +2,7 @@
 #include "CommonInclude.h"
 
 namespace mfe {
+	//모든 컴퓨터가 동일한 결과 값을 도출하게 하기 위한 시간을 구하는 작업 수행
 	class Time
 	{
 		//해결해야 할 문제점1

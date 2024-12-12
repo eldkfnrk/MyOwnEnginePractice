@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "Editor_Window.h"
 #include "..//MyFirstEngine_Source//mfeApplication.h"
+#include "..//MyFirstEngine_Window//mfeLodaScenes.h"  //다른 프로젝트에 있는 파일을 #include하는 것이기 때문에 파일의 위치를 정확히 명시해주어야 한다.
 
 mfe::Application application;
 
@@ -121,6 +122,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   //load Scenes가 호출되어야 하는 위치(mfeLoadScenes.h 파일에서 만든 LoadScenes 함수가 호출되는 위치)
+   mfe::LoadScenes();  //생성된 씬들이 생성
 
    return TRUE;
 }

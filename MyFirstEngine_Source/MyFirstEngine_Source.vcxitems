@@ -16,20 +16,26 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mfeTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mfeTransform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)mfeTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)mfeTransform.cpp" />
   </ItemGroup>
 </Project>

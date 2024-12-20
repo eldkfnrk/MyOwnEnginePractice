@@ -5,6 +5,7 @@
     <ClInclude Include="mfeLodaScenes.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="mfePlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -13,5 +14,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mfePlayScene.cpp" />
+    <ClCompile Include="mfePlayer.cpp" />
   </ItemGroup>
 </Project>

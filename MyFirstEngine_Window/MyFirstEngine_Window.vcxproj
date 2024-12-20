@@ -133,9 +133,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="mfeLodaScenes.h" />
+    <ClInclude Include="mfePlayer.h" />
     <ClInclude Include="mfePlayScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="mfePlayer.cpp" />
     <ClCompile Include="mfePlayScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

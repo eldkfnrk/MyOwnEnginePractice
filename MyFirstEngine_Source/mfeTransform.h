@@ -3,16 +3,17 @@
 
 //게임 오브젝트의 위치 정보를 관장하는 컴포넌트
 namespace mfe {
-	struct pos {  //게임 오브젝트의 위치 정보를 가지는 구조체
-		int mX;
-		int mY;
-	};
+	//struct pos {  //게임 오브젝트의 위치 정보를 가지는 구조체 -> 새로 지정한 구조체가 있기 때문에 이 구조체는 더 이상 필요하지 않아서 삭제
+	//	int mX;
+	//	int mY;
+	//};
+
+	using namespace math;
 
 	class Transform : public Component
 	{
 	private:
-		int mX;
-		int mY;
+		Vector2 mPosition;
 
 	public:
 		Transform();
@@ -24,12 +25,17 @@ namespace mfe {
 		void Render(HDC hdc) override;
 
 		//위치 정보를 설정하고 외부에서 사용하기 위한 Getter Setter
-		void SetPos(int x, int y) {
-			mX = x;
-			mY = y;
+		void SetPos(Vector2 pos) {
+			mPosition.x = pos.x;
+			mPosition.y = pos.y;
 		}
-		int GetX() { return mX; }
-		int GetY() { return mY; }
+		
+		Vector2 GetPosition() {
+			return mPosition;
+		}
+
+		//int GetX() { return mX; }
+		//int GetY() { return mY; }
 
 		~Transform();
 	};

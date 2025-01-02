@@ -11,56 +11,28 @@ namespace mfe {
 
 	void PlayScene::Initialize()
 	{
-		//for (size_t i = 0; i < 100; i++) {  //100개의 게임 오브젝트 생성
-		//	GameObject* obj = new GameObject();
-		//	obj->SetPosition(rand() & 1600, rand() % 900);  //위치는 랜덤으로 설정
-		//	AddGameObject(obj);
-		//}
-
-		//이렇게 {}로 묶으면 같은 함수 내에서라도 영역이 나누어 작업이 이루어지게 된다.
 		{
-			Player* pl = new Player();
-			Transform* tr = pl->AddComponent<Transform>();
+			//Player* pl = new Player();
+			//Transform* tr = pl->AddComponent<Transform>();
 
-			tr->SetPos(800, 450);
+			//tr->SetPos(800, 450);
+
+			Player* bg = new Player();
+			Transform* tr = bg->AddComponent<Transform>();
+
+			tr->SetPos(Vector2(0, 0));
 
 			tr->SetName(L"TR");
 
-			SpriteRenderer* sr = pl->AddComponent<SpriteRenderer>();
+			//SpriteRenderer* sr = pl->AddComponent<SpriteRenderer>();
+			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 
 			sr->SetName(L"SR");
 
-			AddGameObject(pl);
-		}
-
-		{
-			Player* pl = new Player();
-			Transform* tr = pl->AddComponent<Transform>();
-
-			tr->SetPos(300, 450);
-
-			tr->SetName(L"TR");
-
-			SpriteRenderer* sr = pl->AddComponent<SpriteRenderer>();
-
-			sr->SetName(L"SR");
-
-			AddGameObject(pl);
-		}
-
-		{
-			Player* pl = new Player();
-			Transform* tr = pl->AddComponent<Transform>();
-
-			tr->SetPos(100, 650);
-
-			tr->SetName(L"TR");
-
-			SpriteRenderer* sr = pl->AddComponent<SpriteRenderer>();
-
-			sr->SetName(L"SR");
-
-			AddGameObject(pl);
+			sr->ImageLoad(L"D:\정리\게임 공부 관련\C++ 공부\MyOwnEnginePractice\Resources\CloudOcean.png");
+			
+			//AddGameObject(pl);
+			AddGameObject(bg);
 		}
 	}
 

@@ -8,6 +8,9 @@
 
 mfe::Application application;
 
+ULONG_PTR gpToken;
+Gdiplus::GdiplusStartupInput gpsi;
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -61,6 +64,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             application.Run();
         }
     }
+
+    Gdiplus::GdiplusShutdown(gpToken);  //메모리 해제
 
     return (int) msg.wParam;
 }
@@ -122,6 +127,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);  //객체 할당
 
    //load Scenes가 호출되어야 하는 위치(mfeLoadScenes.h 파일에서 만든 LoadScenes 함수가 호출되는 위치)
    mfe::LoadScenes();  //생성된 씬들이 생성
